@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hotel Recommendations</title>
+        <link rel="stylesheet" href="../static/css/theme.css">
+    </head>
+    <body>
+
+        <!--BAGIAN NAVIGASI BAR-->
+      <nav>
+        <div>
+          <a id="horeco-btn" href="home.html">HORECO</a>
+          <a id="home-btn" href="home.html">Home</a>
+          <a id="about-btn" href="about.html">About</a>
+          <a id="features-btn" href="feature.html">Features</a>
+          <a id="testimonials-btn" href="testimonials.html">Testimonials</a>
+          <a id="contact-btn" href="contact.html">Contact</a>
+          <a id="chatbot-btn" href="chatbot.html">Our Chatbot</a>
+        </div>
+        <div>
+          <a href="#" class="nav-btn book-now">Book Now</a>
+          <a href="#" class="nav-btn login" onclick="toggleProfileMenu()">
+            <img src="../static/images/profile.png" alt="Profile Icon">
+          </a>
+          <div id="profile-menu" class="profile-menu">
+            <a href="login.html">Login</a>
+            <a href="profile.html">Profile</a>
+            <a href="preferences.html">Preferences</a>
+          </div>
+        </div>
+      </nav>
+    <script src="../static/javascript/profilnavbar.js"></script>
+
+      <!--BAGIAN INTERFACE CHATBOT-->
+          <div class="chatbot-info">
+            <h2>Personalized Hotel at Your Fingertips</h2>
+            <p>Our advanced AI-powered chatbot is designed to be your personal travel assistant, offering tailored hotel recommendations to suit your unique preferences, budget, and location. Leveraging cutting-edge machine learning algorithms and a vast database of hotels worldwide, our chatbot can suggest the best options for your next trip, ensuring a hassle-free and enjoyable travel experience.</p>
+            <p>Simply engage in a friendly conversation with our chatbot, and it will guide you through a series of questions to deeply understand your travel needs and preferences. Based on your responses, the chatbot will provide a curated list of hotel recommendations, complete with detailed information, ratings, and reviews to help you make an informed decision.</p>
+            <p>Whether you're looking for a luxurious resort, a cozy boutique hotel, or a budget-friendly accommodation, our AI Recommendation Chatbot has you covered. Trust it to be your reliable travel companion, simplifying the booking process and helping you discover the perfect hotel for your upcoming trip.</p>
+          </div>
+          <div class="chatbot-overlay" id="chatbot-overlay" style="display: none;">
+            <div class="chatbot-popup">
+              <div class="chatbot-header">
+                <button id="close-btn">&times;</button>
+              </div>
+              <div class="chatbot-body">
+                <div class="chat-messages"></div>
+                <div class="chat-input">
+                  <input type="text" placeholder="Type your message..." id="message-input" />
+                  <button id="send-btn">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="chat-btn" class="chat-button">Chat</button>
+      <script>
+      const chatBtn = document.getElementById('chat-btn');
+      const chatOverlay = document.getElementById('chatbot-overlay');
+      const closeBtn = document.getElementById('close-btn');
+      const messageInput = document.getElementById('message-input');
+      const chatMessages = document.querySelector('.chat-messages');
+      const sendBtn = document.getElementById('send-btn');
+
+      chatBtn.addEventListener('click', () => {
+        chatOverlay.style.display = 'flex';
+      });
+
+      closeBtn.addEventListener('click', () => {
+        chatOverlay.style.display = 'none';
+      });
+
+      
+
+       // Fungsi untuk mengirim pesan pengguna ke server Flask dan menampilkan respons chatbot
+       function sendMessageToChatbot(message) {
+                fetch('/chat', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'user_input': message
+                    }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const botResponse = data.response;
+                    const botMessageElement = document.createElement('div');
+                    botMessageElement.innerHTML = botResponse.replace(/\n/g, "<br>"); // Mengganti baris baru dengan tag <br>
+                    botMessageElement.classList.add('bot-message');
+                    chatMessages.appendChild(botMessageElement);
+                    chatMessages.scrollTop = chatMessages.scrollHeight; // Auto scroll to bottom
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+      messageInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      sendBtn.addEventListener('click', sendMessage);
+
+      function sendMessage() {
+        const message = messageInput.value.trim();
+        if (message) {
+          const messageElement = document.createElement('div');
+          messageElement.textContent = message;
+          messageElement.classList.add('user-message');
+          chatMessages.appendChild(messageElement);
+          messageInput.value = '';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          // Kirim pesan ke server Flask
+          sendMessageToChatbot(message);
+        }
+      }
+
+       // Fungsi untuk menampilkan jendela chatbot saat halaman dimuat
+    window.addEventListener('load', () => {
+        chatOverlay.style.display = 'flex'; // Menampilkan jendela chatbot secara otomatis saat halaman dimuat
+    });
+      </script>
+      </body>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>HORECO</h3>
+            <a href="about.html">About</a>
+            <a href="#">Contact</a>
+            <a href="#">FAQ</a>
+            <a href="#">Blog</a>
+          </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <a href="#">Booking</a>
+            <a href="#">Guides</a>
+            <a href="#">Insights</a>
+            <a href="#">Recommendations</a>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <a href="#">Help</a>
+            <a href="#">FAQ</a>
+            <a href="#">Feedback</a>
+            <a href="#">Policies</a>
+          </div>
+          <div class="footer-column">
+            <h3>Explore</h3>
+            <a href="#">Adventure</a>
+            <a href="#">Beaches</a>
+            <a href="#">Cities</a>
+            <a href="#">Culture</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">&copy; Copyright 2024, All Rights Reserved</p>
+          <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </footer>
+      </html>

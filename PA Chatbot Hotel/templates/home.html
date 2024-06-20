@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Recommendations</title>
+  <link rel="stylesheet" href="../static/css/theme.css">
+</head>
+<body>
+  
+  <!--BAGIAN NAVIGASI BAR-->
+<nav>
+  <div>
+    <a id="horeco-btn" href="home.html">HORECO</a>
+    <a id="home-btn" href="home.html">Home</a>
+    <a id="about-btn" href="about.html">About</a>
+    <a id="features-btn" href="feature.html">Features</a>
+    <a id="testimonials-btn" href="testimonials.html">Testimonials</a>
+    <a id="contact-btn" href="contact.html">Contact</a>
+    <a id="chatbot-btn" href="chatbot.html">Our Chatbot</a>
+  </div>
+  <div>
+    <a href="#" class="nav-btn book-now">Book Now</a>
+    <a href="#" class="nav-btn login" onclick="toggleProfileMenu()">
+      <img src="../static/images/profile.png" alt="Profile Icon">
+    </a>
+    <div id="profile-menu" class="profile-menu">
+      <a href="login.html">Login</a>
+      <a href="profile.html">Profile</a>
+      <a href="preferences.html">Preferences</a>
+    </div>
+  </div>
+</nav>
+<div id="chatbot-capsule" class="chatbot-capsule">
+  <span>Try Our Chatbot</span>
+  <div class="chat-icon-container">
+    <a href="chatbot.html"><img src="../static/images/chatchatbot.png" alt="Chat Icon"></a>
+  </div>
+</div>
+<script src="../static/javascript/profilnavbar.js"></script>
+
+  <!--BAGIAN HERO/MAIN UTAMA DI HOMEPAGE-->
+  <div class="hero">
+    <div class="hero-slider">
+      <div class="slide">
+        <img src="../static/images/hotelslide1.jpg" alt="Hotel Image 1">
+      </div>
+      <div class="slide">
+        <img src="../static/images/hotelslide2.jpg" alt="Hotel Image 2">
+      </div>
+      <div class="slide">
+        <img src="../static/images/hotelslide3.jpg" alt="Hotel Image 3">
+      </div>
+      <!-- Tambahkan slide lainnya di sini -->
+    </div>
+    <div class="hero-content">
+      <h1>Discover Your Dream Hotel</h1>
+      <p>Experience the best hotels with our innovative chatbot recommendation system.</p>
+      <a href="#" class="hero-btn">Book Now</a>
+    </div>
+  </div>
+  <script src="../static/javascript/homeslideshow.js"></script>
+
+  <!--BAGIAN SEARCH HOTEL-->
+  <div class="interactive-search">
+    <div class="header-container">
+      <h2>Find Your Dream Hotel</h2>
+      <p class="description">Discover the ultimate destination for your next getaway with our extensive collection of hotels worldwide. From luxurious resorts to cozy boutique accommodations, we offer a diverse range of options to suit every traveler's preferences. Our user-friendly platform allows you to browse through a vast selection of hotels, filter by location, amenities, and budget, ensuring that you find the perfect match for your desired travel experience. Whether you're seeking a romantic escape, a family adventure, or a business trip, our team of experts is dedicated to providing personalized recommendations and seamless booking processes.</p>
+      <button class="serc-btn">Search Hotels</button>
+    </div>
+    <div class="image-container">
+      <img src="../static/images/searchimg.jpg" alt="Search Image">
+    </div>
+    <div class="form-container">
+      <button class="closea-btn">&times;</button>
+      <form>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required>
+    
+        <label for="dates">Dates:</label>
+        <input type="text" id="dates" name="dates" required>
+    
+        <label for="rooms">Rooms & Guest:</label>
+        <input type="text" id="rooms" name="rooms" required>
+    
+        <label for="class">Class:</label>
+        <select id="class" name="class" required>
+          <option value="">Select Class</option>
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+        </select>
+    
+        <div class="side-by-side">
+          <label for="brands">Brands:</label>
+          <input type="text" id="brands" name="brands">
+          <label for="rates">Special Rates:</label>
+          <input type="text" id="rates" name="rates">
+        </div>
+    
+        <button type="submit">Find Hotel</button>
+      </form>
+    </div>
+  </div>
+  <script src="../static/javascript/interactivesearch.js"></script>
+
+  <!--BAGIAN KARTU DESTINASI-->
+  <div class="destination-highlights">
+    <h2>Popular Destinations</h2>
+      <button class="prev-btna">&#8249;</button>
+      <button class="next-btna">&#8250;</button>
+    <div class="destination-cards-container">
+      <div class="destination-cards">
+        <button class="destination-card">
+          <img src="../static/images/paris.jpg" alt="Destination 1">
+          <h3>Paris, France</h3>
+          <p>Explore the romantic streets of Paris, home to iconic landmarks like the Eiffel Tower and Louvre Museum.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/tokyo.jpg" alt="Destination 2">
+          <h3>Tokyo, Japan</h3>
+          <p>Experience the bustling metropolis of Tokyo, where tradition meets modernity with its vibrant neighborhoods and cuisine.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/bali.jpg" alt="Destination 3">
+          <h3>Bali, Indonesia</h3>
+          <p>Relax on the stunning beaches of Bali and immerse yourself in its rich culture and lush landscapes.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/istanbul (1).jpg (1).jpg" alt="Destination 4">
+          <h3>Istanbul, Turkiye</h3>
+          <p>Discover the enchanting city of Istanbul, where East meets West with its historic architecture and vibrant markets.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/seoul (1).jpg (1).jpg" alt="Destination 5">
+          <h3>Seoul, South Korea</h3>
+          <p>Experience the dynamic city of Seoul, known for its cutting-edge technology and vibrant K-pop culture.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/barcelona (1).jpg (1).jpg" alt="Destination 6">
+          <h3>Barcelona, Spain</h3>
+          <p>Enjoy the vibrant atmosphere of Barcelona, known for its unique architecture, delicious cuisine, and lively street life.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/dubai (1).jpg (1).jpg" alt="Destination 7">
+          <h3>Dubai, United Arab Emirates</h3>
+          <p>Experience luxury in Dubai, home to futuristic skyscrapers, luxury shopping, and desert adventures.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/bangkok (1).jpg (1).jpg" alt="Destination 8">
+          <h3>Bangkok, Thailand</h3>
+          <p>Discover the vibrant street life of Bangkok, with its bustling markets, ornate temples, and delicious street food.</p>
+        </button>
+        <button class="destination-card">
+          <img src="../static/images/vienna (1).jpg (1).jpg" alt="Destination 9">
+          <h3>Vienna, Austria</h3>
+          <p>Explore the cultural capital of Vienna, known for its classical music, imperial palaces, and charming coffee houses.</p>
+        </button>
+        <!-- Tambahkan 7 kartu lagi di sini -->
+      </div>
+    </div>
+  </div>
+  <script src="../static/javascript/destinasicard.js"></script>
+
+  
+ 
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>HORECO</h3>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-column">
+      <h3>Services</h3>
+      <a href="#">Booking</a>
+      <a href="#">Guides</a>
+      <a href="#">Insights</a>
+      <a href="#">Recommendations</a>
+    </div>
+    <div class="footer-column">
+      <h3>Support</h3>
+      <a href="#">Help</a>
+      <a href="#">FAQ</a>
+      <a href="#">Feedback</a>
+      <a href="#">Policies</a>
+    </div>
+    <div class="footer-column">
+      <h3>Explore</h3>
+      <a href="#">Adventure</a>
+      <a href="#">Beaches</a>
+      <a href="#">Cities</a>
+      <a href="#">Culture</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="copyright">&copy; Copyright 2024, All Rights Reserved</p>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+</html>
